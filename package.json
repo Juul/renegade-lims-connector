@@ -1,0 +1,16 @@
+{
+  "name": "renegade-lims-connector",
+  "version": "0.0.1",
+  "dependencies": {
+    "backoff": "^2.5.0",
+    "minimist": "^1.2.5",
+    "rpc-multistream": "^1.0.0"
+  },
+  "author": {
+    "name": "Marc Juul",
+    "email": "npm@juul.io",
+    "url": "https://github.com/juul"
+  },
+  "devDependencies": {},
+  "license": "AGPL-3.0"
+}
