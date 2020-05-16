@@ -72,19 +72,24 @@ function connect(opts, cb) {
     initialDelay: 3 * 1000, // 3 seconds
     maxDelay: 30 * 1000
   });
-  
+
+  var connected = false;
   var count = 0;
   function tryConnect() {
     connectOnce(opts, function(err, remote) {
       if(err) {
-        console.error(err);
+        if(connected) {
+          cb(err);
+        }
         if(count > 0) {
           back.backoff();
           return;
         }
         process.nextTick(tryConnect);
         count++;
+        connected = false;
       } else {
+        connected = true;
         count = 0;
         back.reset();
         cb(null, remote);

@@ -19,9 +19,12 @@ limsConnect({
     heartbeatRate: 3000 // How often to send heartbeat/keepalive in ms
 }, function(err, remote) {
 
-   // 'remote' is returned by rpc-multistream
+   // 'remote' is returned by rpc-multistream on connect
    // and contains all rpc methods exported by the server as properties
-   
+
+   // If 'remote' is falsy then we were disconnected
+   // after having been connected and err may be set
+
 });
 ```
 
